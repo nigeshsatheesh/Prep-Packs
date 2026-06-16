@@ -1,0 +1,145 @@
+VERSION CONTROL SYSTEMS (VCS)
+    Subversion, Perforce, AWS Code Commit, Mercurial, Git
+    #TYPES
+        Server and clients based systems
+        1. Centralized Version Control Systems (CVCS)
+            In this system there is centralized server that holds the enitre code and history of changes and if any changes need the clients have to pull and push requests
+        2. Distributed Version Control Systems (DVCS)
+            Similar to CVCS where each client is treated as server so that each client have the history of changes committed to the code
+
+GUIs (Graphical User Interfaces)
+    To interact with computer systems
+    eg: comand line
+
+COMMAND LINE(cmd - windows shell)
+    #COMMANDS
+        1. cd "<directory>"          - change directory
+            eg: cd ~/Desktop         -> forwards to desktop directory
+                cd .. (or) cd /       -> moves out of the current directory and to the parent directory of the current directory
+                cd "C:\Users\Nigesh\OneDrive\Documents\MINE"
+        2. touch <name of the file>   - to create a new file
+            eg: touch example.txt
+        3. mkdir <name of the folder> - to create a new folder
+        4. history                    - to see history of the commands
+        5. code <file_name>           - opens the file for coding in vs code
+        6. wsl <bash_cmd>             - to execute bash command in command prompt
+UNIX COMMANDS
+    #COMMANDS (bash language)
+    syntax: #<unix_command>
+            #<unix_cmd> -<flags>,.. <file_name>,...
+        1. man - (manual) that gives helper instructions of the unix commands
+                 flags used to change the behaviour of the command
+            eg: man ls
+        2. cd  - change directory
+        3. ls  - (lists) shows all the contents of the current directory
+            eg: ls -l -> lists in list order and shows read and write options
+                ls -a -> lists all the contents including hidden ones
+        4. pwd - (print working directory) shows the full directory of the current working directory
+        5. cp  - copies files from one destination to another
+        6. mv  - moves files from one destination to another
+                    eg: mv <file/directory> <to_directory>
+                 Also to rename files
+                    eg: mv <old_name> <new_name>
+                eg: mv <file> <to_directory>/<new_name>
+        7. cat - to display contents of a file
+            eg: cat <file_name>
+        8. wc  - returns word count of the file
+            eg: wc <file_name> -w (-w -> this flags displays word count)
+        9. PIPES (|): To pass the output of a command as the input of another command
+            eg: ls (let ls lists two files)
+                ls |wc -w -> gives output 2. the output of ls is given as the input of wc -w 
+        10. less <file_name>                  - shows the content of the file
+        11. rm                                - removes file
+        #REDIRECTION 
+            All command shells contains Standard Input, Standard Ouput, Standard Output
+            With redirection we can alter the STD input and/or STD output
+            1. STANDARD INPUT - To store user input into a file
+                eg: cat > <file_name>
+                    //content
+                    "press control+d to inform that this is the end of file"
+                    To output the content of a file
+                        cat < <file_name>
+            2. STANDARD OUTPUT - All most all the commands are output commands. With redirection we can alter where this output goes
+                <cmd> > < <place_where_cmd_output_should_be_stored>
+                eg: ls -l > output.txt -> creates a new file and stores the output
+            3. STANDARD ERROR - With the help of redirection the error can be reprinted into a new file along with the error output
+                2>   -> to display error message
+                2>&1 -> to combine the error message with error output
+                <input> output.txt2> error.txt
+                eg: ls -l /bin/usr > error.txt -> displays error
+                    ls -l /bin/usr 2> error.txt -> prints error into error.txt file
+                    ls -l /bin/usr > error.txt 2>&1 -> prints error & error output into error.txt file
+        #GREP (Global Regular Expression Print)
+            Used to alter the output of commands 
+            Pipes also applicable
+            Case Sensitive
+                grep <filter> <file_name>
+                flags
+                    -i -> ignores case 
+                    -w -> gets stricted to the filter
+                eg: grep Sam names.txt -> shows all the names starting with Sam/if not shows those names that contains Sam in it
+                    grep -i Sam names.txt -> removes case sensitivity
+                    grep -w Sam names.txt -> displays those names that are Sam
+
+DIRECTORIES 
+    bin          - standard directory
+    l<file_name> - this file gets executed the first
+    temp -> tmp  - same link to the same directory
+    -<file_name> - text file
+    .<file_name> - hidden folder (Linux) 
+
+GIT GITHUB
+    Git is a VCS that keeps track of the version of the code
+    GitHub is a cloud based platform used for managing git repositories
+    syntax: $<git_command>
+    #GIT WORKFLOW
+        Working Directory -> Staging -> Committing files -> Remote Repository
+    #GIT FILES
+        README.md = Its a file that contains description about the repository
+        .git      = it is a hidden folder that stores all the changes made into the repository
+        HEAD      = it is the header file of the current working file, every directory has a header file
+    #COMMANDS
+        git clone <http link/ssh key/git cli> = to make clone of the created repository
+        cd                                    = change directory
+        ls -la                                = lists all contents(including hidden) of the file
+        git init                              = to initialize a repository
+        git remote                            = to make the repo local
+            git remote -v = gives the info of the repo
+        git add                               = adds all the changes to the stage environment or commit environment
+            git add .           = adds all the files
+            git add <file_name> = adds only the specific file
+        git commit -m "message"               = saves the changes to the branch or main in the staged environment with a written message for it
+        git push -u origin <branch_name/main> = (origin default name for remoet repo)pushes the changes from local repo to the remote repo
+        git fetch                             = to fetch the file
+        git branch                            = lists all the branches
+            git branch -a               = lists all branched including hidden
+            git branch <branch_name>    = creates new branch without changing directory
+            git branch -d <branch_name> = deletes the branch
+            git branch -m <new_name>    = rename a branch
+        git checkout -B <branch_name>         = to create a new branch and changes the directory
+        git merge                             = 
+        git status                            = tells current branch and any changes left to commit
+        git restore --stage <file_name>       = to restore staged files
+        git diff                              = shows the changes made in a file by comparing its previous and newer version
+        git blame <file_name>                 = to show details of changes made in a file
+            -commit id
+            -author
+            -date
+            -time
+            -line number(where change occured)
+            -content
+            git blame -l <file_name> = list changes info in list format
+        git log                               = shows changes made in a file
+            git log -p <id_of_the_change> = shows the changes of the specific change
+        echo                                  = to write in a file
+        touch                                 = to create a new file
+        clear                                 = clear all the commands
+
+    #FORKING
+        Instead of creating branches, separate repositories are created for working on the project.
+        To commit its changes to the main repository it have to checked with the main repository
+
+    #GIT COMMAND ORDER
+        working directory -> staging area -> local repository -> remote repository
+        gh repo create -> gh repo clone <repo_name>
+        pwd -> git status -> git add -> git commit -> git push -> git pull (compare & pull request in GitHub) -> Merge

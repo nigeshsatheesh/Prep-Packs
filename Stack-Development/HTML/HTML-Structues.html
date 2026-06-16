@@ -1,0 +1,289 @@
+<!--
+
+HTML - Hyper Text Markup Language (Markup - Text based tags)
+
+INTRODUCTION
+    -> Used to create structure of the webpage
+
+    -> Used to create static webpage
+
+    -> HTML uses pre defined elements
+
+    -> Elements as tags 
+        eg: <p> (opening tag) </p> (closing tag)
+
+    -> HTML file uses .html as its extension
+
+    -> HTML follows parent - child relationship
+        eg: head(contains third party stuff) and body(content of the page)
+
+    -> Characteristics inside a tag is known as attribute
+
+    ->TIPS & TRICKS
+        -> Put ! and hit enter to get default html structure
+        -> The word 'Lorem' is used to display sample text content (Lorem+number -> no of words to display, Lorem*number -> no of lines)
+            eg: <p>Lorem</p>       -> single line sample text
+                <p>Lorem*5</p>     -> 5 lines of sample text
+                <p>Lorem*5000</p>  -> 5000 lines of sample text
+    
+    -> To input audio file
+                <audio controls>
+                    <source src="file/directory" type="audio/mp3">
+                </audio>
+            -> To input video file
+                <video controls>
+                    <source src="file/directory" type="video/mp4">
+                </video
+
+STRUCTURE
+    <!DOCTYPE html> document type
+
+    <html> root element
+
+        <head> information about the html page
+
+            <title></title> title of the page
+
+            //<meta> : description about the html page that helps the search engine to search this HTML page
+            <meta name="" http-equiv="" content=""> 
+
+            defining html page using keywords
+            <meta name"keywords" content="HTML,CSS,JavaScript">
+
+            defining description of the html page
+            <meta name"description" content="A HTML page">
+
+            defining the author
+            <meta name="author" content="John Doe">
+            refresh the document at a frequent of 30secs
+
+            <meta http-equiv="refresh" content="30">
+
+            setting viewport(make the HTML page look good on all  devices)
+            <meta name="viewport" content="width=device-width, initial-scake=1.0">
+
+            -> charset tells the browser how to diplay text using which encoding standard
+            -> UTF-8 (Unicode Transformation Format 8-bit) - most common character encoding standard used in all webpage
+
+            <link> : to link css files,libraries
+
+            external css linking
+            <link rel="stylesheet" href="css_styling.css">
+
+        </head>
+
+        <style>
+
+            //internal CSS
+
+            div
+            {
+                border: 0px solid  black;
+                padding: 0px;
+            }
+            
+            table, th, td
+            {
+                border: 0px solid black;
+                border-collapse: collapse; /*combines the two borders*/
+            }
+
+        </style>
+
+        <body>
+
+            //header tags
+            <h1></h1>
+            <h2></h2>
+            <h3></h3>
+            <h4></h4>
+            <h5></h5>
+            <h6></h6>
+
+            //paragraph tag
+            <p></p>
+
+            //text styles
+            <b></b> bold
+            <strong></strong> bold with meaning
+            <i></i> italic
+            <em></em> italic with meaning
+            <u></u> underline
+            <mark></mark> highlighting
+
+            //line breaks
+            <br> 
+            <hr> horizontal line break
+
+            //lists
+            /unordered lists
+            <ul>
+                <li></li> list item
+            </ul>
+            /ordered lists
+            <ol>
+                <li></li> list item
+            </ol>
+
+            //container
+            <div></div> contains content in a structure
+
+            //anchor tag
+            <a href=""></a> for linking html pages, hyperlinks
+
+            //image tag
+            <img src="" width="0" height="0" alt="">
+
+            //table tag
+            <table>
+                <tr>
+                    <th></th> headers/columns
+                </tr>
+                <tr> rows
+                    <td></td> table items/columns
+                </tr>
+            </table>
+
+            //forms
+            <form action="the URL where data should be sent" method="the method for data transfering(GET-get data/POST-send data)">
+                <label for="links label and input"></label> name for the input
+                <input type="button/checkbox/email/password/radio/reset/file/search/submit/text/url" id="unique identifier of the element" name="links input and label" value="value of the input">
+                <textarea id="unique identifier of the element" name="" rows="0" cols="0"></textarea>
+                <button type="button"></button>
+                <select name="" id="">
+                    <option value=""></option>
+                </select>
+                <fieldset> bordered box
+                    <legend></legend> name of the fieldset
+                </fieldset>
+                <output name="" for=""></output> to represent output of an operation
+            </form>
+        </body>
+    </html>
+
+SEMANTIC TAGS
+    Meaningfull tags
+        <header></header> = consists of the header section like navigation, logo, etc
+            <nav></nav> -   it is placed right after the header element that contains logos
+                            The links of the nav bar is listed as unordered lists
+        eg: <header>
+                <nav>
+                    <ul>
+                        <li><a href="#about"></a></li>
+                        <li><a href="#skills"></a></li>
+                        .
+                        .
+                        .
+                    </ul>
+                </nav>
+            </header>
+
+        <main></main>     = contains sections and articles
+            <article></article> - an independent content that is displayed justlike in a newspaper eg forum post, article, blog post, user comment, interactive widget
+            <secction></section> - small section of content
+            <aside></aside> - a secondary set of content that is not required to understand the main content
+            <details></details> - a collapsed section of content that can be expanded if the user wants to view it
+            <summary></summary> - specifies summary or caption of a details element
+            <blockquote></blockquote> - used to describe a quotation
+            <dl> - description lists
+            <dt> - description list terms
+            <dd> - to provide description for dt elements
+            <figcaption> - provides caption for an image
+            <figure> - adds markup to photo image
+            <menu> - semantic alternative for <ul> tag
+            <pre> - used to represent prerendered text generated by the web browser using monospace font
+        eg: <main>
+                <article>
+                    <h1>....</h1>
+                    <p>....</p>
+                    <article></article> for sub divisions
+                </article>
+                <section>
+                    <h3>..</h3>
+                    <p>..</p>
+                </section>
+            </main>
+        <footer></footer> = can contain copyright policy, contact information and social media links
+        
+        #INLINE TAGS
+            <a> - anchor tag
+            <abbr> - specifices that the containing text is an abbreviation
+            <b> - bold
+            <strong> - semantic bold
+            <br> - <line break>
+            <cite> - provides the italic title of the creative work(eg: poem,song,movie,painting or sculpture)
+            <code> - indicates that the containing text is a block of computer code
+            <data> - indicates machine readable data
+            <em> - semantic italic
+            <i> - italic text
+            <mark> - highlights
+            <q> - contains short quotation
+            <s> - displays the containing text with strikethrough or line through it
+            <samp> - containing texts is a sample
+            <small> - to represent small text such as copyright text
+            <span> - element for grouping content for css styling
+            <sub> - the containing text is a subscript
+            <sup> - the containing text is a superscript
+            <time> - it display both date and time
+            <u> - underline the text
+            <var> the containing text is a variable in a math expression
+        #EMBEDDED CONTENT AND MEDIA TAGS
+            <audio> - to embed audio
+            <canvas> - to render 2d and 3d graphics on webpage
+            <embed> - used as containing element for external media player or plug-in
+            <iframe> - used to embed a nested page
+            <img> - used to display an image
+            <object> - similar to <embed> but the content is provided by web browser plug-in
+            <picture> - contains <img> and <source> for alternative image display
+            <video> - to embed videos
+            <source> - specifices media resources for <picture>,<audio> and <video> elements
+            <svg> - used to define Scalable Vector Graphics in a web page
+        #TABLE TAGS
+            <table> - to define a table
+            <thead> - header content of the table, contains one <tr>
+            <tbody> - main content of the table, contains one or more <tr>
+            <tfoot> - represents footer of the table, contains one <tr>
+            <tr> - table row
+            <td> - table data
+            <th> - table header
+            <caption> - provide caption for table element
+            <colgroup> - semantic group of one or more columns in a table
+            <col> - semantic column in a table
+
+METADATA
+    Data about other data i.e. information about webpage that helps the search engine to organize the page
+    SEO - Search Engine Optimization
+    Attributes: name(metadata name), content (value of metadata), charset (specifies the character encoding so that the browser can display it properly), http-equiv(to simulate http response like refreshing)
+    eg: <head>
+            <meta name="nigesh satheesh" content="Nigesh's Portfolio" charset="UTF-8" (http-equiv="refresh" content="30" refreshes every 30 mins) >
+        </head>
+    
+    #TYPES
+        1. Author Metadata - specifies author of the webpage
+            <meta name="author" content="Jane Wilson">
+        2. Description Metadata - specifies description of the meta data
+            <meta name="description" content="Jane's first web page">
+        3. Keyword Metadata - specifies the keywords SEO uses
+            <meta name="keywords" content="holidays, free, summer">
+        4. Robots Metadata - specifies how SEO should analyse the website
+            <meta name="robots" content="index, follow">
+            4 types of contents
+                index: instructs bots to analyse the page
+                follow: instructs bots to analyze hyperlinks
+                noindex: instructs bot not to analyse the page (bots ignore this value)
+                nofollow: instructs bot not to follow hyperlinks (bot ignore this value)
+        5. Viewport Metadata - used for responsive website
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        6. Title Metadata - specifies the title of the webpage
+            <meta name="title" content="portfolio">
+        7. Google Metadata - instructs google
+            <meta name="google" content="notsitelinksearch"> - removes the search bar that appears in the result when search engine shows results
+        8. Googlebot Metadata - instructs google bot
+            <meta name="googlebot" content="notranslate, noindex, nofollow, nosnippet, max-snippet:<number>"(sets character limit of the description of the search result)>
+        9. Revised Metadata - specifies the last edited time & date
+            <meta name="revised" content="Sunday, July 18th, 2010, 5:15 pm">
+        10. Rating Tag - specifies age restriction
+            <meta name="rating" content="safe for kids">
+        11. Copyright Metadata - specifies the copyright of the website
+            <meta name="copyright" content="Copyright 2026">
+-->

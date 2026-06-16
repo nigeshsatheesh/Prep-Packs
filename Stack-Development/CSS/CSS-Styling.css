@@ -1,0 +1,138 @@
+/*
+CSS - CASCDING STYLE SHEET
+
+    -> WAYS TO IMPLEMENT
+        1. Inline CSS (attributes)
+        2. Interal CSS (<style> tag)
+        3. External CSS (css file)
+
+    -> CSS UNITS
+        1. Absolute Units (fixed and stay exactly the same)
+        2. Relative Units (scale dynamically based on screen sizes,etc..)
+
+    -> css rule : selector{declaration:value;}
+*/
+
+/*
+
+Selector (element/#ids/.class in html)
+
+    -> TYPES OF SELECTORS
+        1. Element Selector
+        2. Class Selector
+        3. ID selector
+        4. Universal Selector
+        5. Pair Selector
+
+element
+{
+    Declaration: Value;
+}
+
+#id
+{
+    Declaration: Value;
+}
+
+Descendant Element (for all the elements cotained within an element with #id)
+
+#id element 
+{
+    Declaration: Value;
+}
+
+#id div element (for all the elements cotained within div tag with #id)
+{
+    Declaration: Value;
+}
+
+Child Element (to select immediate element of an element with #id)
+
+#id > element 
+{
+    Declaration: Value;
+}
+
+.class
+{
+    Declaration: Value;
+}
+
+element.class
+{
+    Declaration: Value;
+}
+
+:hover Pesudo-Class (used to style elements when they are hovered)
+
+element:hover
+{
+    Declaration: Value;
+}
+
+*/
+
+/*
+
+Declarations (style properties)
+
+color: Value;
+    RGB Value rgb(red,green,blue)
+    RGBA Value rgba(r,g,b,a) [a:opacity]
+    HSL Value hsl(hue,saturation%,Lightness%)
+    HEX Value #FFFFFF
+    TEXT Value red,green,blue,black,white,yellow,silver,gray,maroon,purple,fuchsia,lime,olive,navy,teal,aqua)
+
+font-family: "Main font", secondary font(willbe used when main font not present);
+
+font-size: 0px;
+
+text-transform: uppercase/lowercase/capitalize/none;
+
+text-decoration: underline color sizepx;
+text-decoration-line: underline/overline/linethrough/none;
+text-decoration-color: color;
+text-deecoration-style: solid/double/dotted/dashed/wavy;
+text-decoration-thickness: size;
+
+display: block(has box properties)/inline(has inline properties eg;width)/inline-block/flex (row or column)/grid(row & columns)/contents;
+
+text-align: center/left/right/justify(every line of the text has same width);
+
+float: left/right; (places the content in relative to the text content of the parent)
+position: left/right;
+
+*/
+
+/*
+
+Box Model(content,padding,border,margin)
+
+box
+{
+
+    content size (dimensions of the content to be displayed
+        width: 0px;
+        height: 0px;
+
+    padding (transparent area around the content)
+        padding: 0px;
+        padding-top: 0px;
+        padding-bottom: 0px;
+        padding-right: 0px;
+        padding-left: 0px;
+
+    border (covers the padding)
+        border: 0px solid color;
+        border-width: thin/medium/thick;
+
+    margin (transparent area outside the content)
+        margin: 0px/auto;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        margin-right: 0px;
+        margin-left: 0px;
+
+}
+
+*/

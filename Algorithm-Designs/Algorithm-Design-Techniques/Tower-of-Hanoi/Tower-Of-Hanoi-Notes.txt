@@ -1,0 +1,93 @@
+
+TOWER OF HANOI
+    The Tower of Hanoi is a classic mathematical puzzle. The goal is to move a stack of n disks from a source rod to a 
+    destination rod using an auxiliary rod.
+
+          |             |             |
+         ---            |             |
+        -----           |             |
+       -------          |             |
+     ===========   ===========   ===========
+      Source (A)   Auxiliary (B)  Destination (C)
+
+//LOGIC
+
+    Syntax: toh(n,from,helping_rod,to)
+            toh(n,s,a,d)
+
+    Movement of Disks:
+        Recursion 1;
+            Step 1: Move the top n-1 disks from the Source rod to the Auxiliary rod. This clears the way for the largest disk.
+                toh(n-1,s,d,a)
+                
+                          |             |             |
+                          |             |             |
+                          |            ---            |
+                       -------        -----           |
+                     ===========   ===========   ===========
+                     Source (A)   Auxiliary (B)  Destination (C)
+
+            Step 2: Move the largest disk directly from the Source rod to the Destination rod.
+                toh(n-1,s,d,a) -> gets removed at the last recursion
+
+                          |             |             |
+                          |             |             |
+                          |            ---            |
+                          |           -----         ------    
+                     ===========   ===========   ===========
+                     Source (A)   Auxiliary (B)  Destination (C)
+
+        Recursion 2;
+            Step 3: Move the n-1 disks from the Auxiliary rod to the Destination rod on top of the largest disk
+                toh(n-1,a,s,d)
+
+                          |             |              |
+                          |             |             ---
+                          |             |            -----
+                          |             |           -------    
+                     ===========   ===========    ===========
+                     Source (A)   Auxiliary (B)  Destination (C)
+    
+    Printing Movements:
+        Always print nth disk moved from s to d
+
+    Base Condition:
+        Whenever n becomes zero, end the recursion
+
+//FLOW OF EXECUTION OF TOH(3)
+
+toh(3,A,B,C)
+    |
+    |--- toh(2,A,C,B)
+    |   |
+    |   |--- toh(1,A,B,C)
+    |   |   |
+    |   |   |--- toh(0,A,C,B) -> return
+    |   |   |--- print disk 1 moved from A -> C
+    |   |   |--- toh (0,B,A,C) -> return
+    |   |
+    |   |--- print disk 2 moved from A -> B
+    |   |
+    |   |--- toh(1, C, A, B)
+    |       |
+    |       |--- toh(0,C,B,A) -> return
+    |       |--- print disk 1 moved from C -> B
+    |       |--- toh(0,A,C,B) -> return
+    |
+    |--- print disk 3 moved from A -> C
+    |
+    |--- toh(2,B,A,C)
+        |
+        |--- toh(1,B,C,A)
+        |   |
+        |   |--- toh(0,B,A,C) -> return
+        |   |--- print disk 1 moved from B -> A
+        |   |--- toh(0,C,B,A) -> return
+        |
+        |--- print disk 2 moved from B -> C
+        |
+        |--- toh(1,A,B,C)
+            |--- toh(0,A,C,B) -> return
+            |--- print disk 1 moved from A -> C
+            |--- toh(0,B,A,C) -> return
+        
