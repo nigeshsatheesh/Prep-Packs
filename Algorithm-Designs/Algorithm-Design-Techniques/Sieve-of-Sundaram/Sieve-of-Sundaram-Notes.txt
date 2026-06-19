@@ -1,0 +1,52 @@
+Sieve Of Sundaram
+    To find all the prime numbers within the given limit
+
+    Logic:
+
+        ->Initialization;
+
+                 (T) (T) (T) (T) (T) (T) (T) (T) (T) (T) (T) (T) (T) (T) (T) (T) (T) (T) (T) (T)
+                [ 1,  2,  3,  4,  5,  6,  7,  8,  9, 10,  11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+
+        -> Marking the numbers within the range 1 to n-1 whose value is obtained
+        by the formula;
+                        i + j + 2*i*j
+            Marking is done using a boolean array of zero-based indices and two for loops
+
+            Obtaining numbers to be marked
+
+                   j=1      j=2      j=3      j=4      j=5      ...
+                 +--------+--------+--------+--------+--------+
+            i=1  |   4    |   7    |   10   |   13   |   16   |  ...  <- Row 1 increases by 3
+                 +--------+--------+--------+--------+--------+
+            i=2  |        |   12   |   17   |   22   |   27   |  ...  <- Row 2 increases by 5
+                 +--------+--------+--------+--------+--------+
+            i=3  |        |        |   24   |   31   |   38   |  ...  <- Row 3 increases by 7
+                 +--------+--------+--------+--------+--------+
+            i=4  |        |        |        |   40   |   49   |  ...  <- Row 4 increases by 9
+                 +--------+--------+--------+--------+--------+
+
+            Marking
+                 (T) (T) (T) (F) (T) (T) (F) (T) (T) (F) (T) (T) (F) (T) (T) (F) (T) (T) (T) (T)
+                [ 1,  2,  3,  4,  5,  6,  7,  8,  9, 10,  11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+
+
+        -> Then using the unmarked numbers, the prime numbers are obtained by the formula;
+                        2*(unmarked_number) + 1 = prime
+            the obtained value should be within the range
+
+            Obtaining Primes
+                1(T),
+                    2(1) + 1 = 3 (Prime)
+                2(T),
+                    2(2) + 1 = 5 (Prime)
+                3(T),
+                    2(3) + 1 = 7 (Prime)
+                5(T),
+                    2(5) + 1 = 11 (Prime)
+                6(T),
+                    2(6) + 1 = 13 (Prime)
+                8(T),
+                    2(8) + 1 = 17 (Prime)
+                9(T),
+                    2(9) + 1 = 19 (Prime)
