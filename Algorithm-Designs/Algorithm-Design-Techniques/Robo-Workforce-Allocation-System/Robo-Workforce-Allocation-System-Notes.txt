@@ -1,0 +1,39 @@
+Robo Workforce Allocation System (similar to Travelling Salesman Problem)
+    You have n robots and n tasks. Assigning robot i to task j has some cost (time, energy, etc.). 
+    Each robot must get exactly one task, and each task must be done by exactly one robot. 
+    The goal: assign robots to tasks so that the total cost is minimized.
+
+    Relation to TSP:
+        Both problems use a cost matrix and both are solved here by brute-forcing all permutations with 
+        next_permutation. The code structure is nearly identical to the TSP code. But the meaning of the permutation 
+        is different:
+
+                    ------------------------------------------------------------------------------------------------------------
+                    |                   TSP                          |                Robo Workforce Allocation                |
+                    ------------------------------------------------------------------------------------------------------------
+                    | What's permuted  | Order of visiting cities    | Mapping of tasks to robots                              |
+                    ------------------------------------------------------------------------------------------------------------
+                    | Cost calculated  | cost[currentCity][nextCity] | cost[i][task[i]] (robot-to-task, one-to-one assignment) |
+                    ------------------------------------------------------------------------------------------------------------
+                    | Structure        | A cycle/path: 0→a→b→c→0     | A matching: robot 0↔task X, robot 1↔task Y...           |
+                    ------------------------------------------------------------------------------------------------------------
+                    | Fixed point      | City 0 always start/end     | No fixed start — every robot needs an assignment        |
+                    ------------------------------------------------------------------------------------------------------------
+                    | Permutation size | n-1 (cities except 0)       | n (all robots/tasks)                                    |
+                    ------------------------------------------------------------------------------------------------------------
+
+    Logic:
+        Diagramatic Explanation;
+            For n = 3 robots (R0, R1, R2) and 3 tasks (T0, T1, T2):
+                Robots          Tasks
+                R0  ----cost[0][?]----  T0, T1, or T2
+                R1  ----cost[1][?]----  T0, T1, or T2
+                R2  ----cost[2][?]----  T0, T1, or T2
+            Each permutation of [0,1,2] represents one possible complete assignment:
+                task = [0,1,2] → R0-T0, R1-T1, R2-T2
+                task = [0,2,1] → R0-T0, R1-T2, R2-T1
+                task = [1,0,2] → R0-T1, R1-T0, R2-T2
+                task = [1,2,0] → R0-T1, R1-T2, R2-T0
+                task = [2,0,1] → R0-T2, R1-T0, R2-T1
+                task = [2,1,0] → R0-T2, R1-T1, R2-T0
+            For each, sum cost[0][task[0]] + cost[1][task[1]] + cost[2][task[2]] and keep the minimum.
