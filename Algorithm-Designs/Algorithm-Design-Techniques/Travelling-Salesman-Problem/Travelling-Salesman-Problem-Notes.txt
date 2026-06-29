@@ -1,0 +1,35 @@
+Travelling Salesman Problem
+    The Travelling Salesman Problem (TSP) is a classic optimization problem where a salesman must visit a set of 
+    cities exactly once and return to the starting city. The goal is to find the absolute shortest possible route 
+    to minimize total travel cost or distance.
+
+    Logic:
+        -> This algorithm follows graph methodology. Graph matrix is obtained from the given graph data.
+        eg: 3 City example;
+                                (City 0)
+                                 /     ^
+                                /       \ 
+                               v         \ 
+                          (City 1) ---> (City 2)
+
+            Graph Matrix; (based on weight of the edges)
+                               |City(0)|City(1)|City(2)|
+                        --------------------------------
+                        City(0)|   0   |   2   |   1   |
+                        --------------------------------
+                        City(1)|   2   |   0   |   3   |
+                        --------------------------------
+                        City(2)|   1   |   3   |   0   |
+                        --------------------------------
+
+        -> The algorithm starts from a specific vertex and travels to return back to the same start vertex.
+        
+        -> It tries every possible order of visiting the cities and picks the cheapest one.
+
+        -> Since city 0 is fixed as start/end, only cities 1, 2, ..., n-1 need to be arranged in different orders.
+
+        -> For n-1 cities, there are (n-1)! possible orders (permutations). next_permutation() is used to generate all 
+        these orders one by one.
+
+        -> For each order, calculate the total trip cost, and keep track of the smallest one seen so far.
+
